@@ -73,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // TODO (4) Iterate backwards through mLifecycleCallbacks, appending each String and a newline to mLifecycleDisplay
-        for(int i = 8; i>0; i--){
+        for(int i = 7; i>=0; i--){
             mLifecycleCallbacks[i]+=mLifecycleDisplay.getText().toString()+'\n';
         }
         // TODO (5) Clear mLifecycleCallbacks after iterating through it
