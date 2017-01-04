@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView mLifecycleDisplay;
 
     // TODO (1) Declare and instantiate an ArrayList of Strings called mLifecycleCallbacks
+    static String[] mLifecycleCallbacks = new String[8];
 
     /**
      * Called when the activity is first created. This is where you should do all of your normal
@@ -72,8 +73,13 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // TODO (4) Iterate backwards through mLifecycleCallbacks, appending each String and a newline to mLifecycleDisplay
-
+        for(int i = 8; i>0; i--){
+            mLifecycleCallbacks[i]+=mLifecycleDisplay.getText().toString()+'\n';
+        }
         // TODO (5) Clear mLifecycleCallbacks after iterating through it
+        for(int i = 0; i<8; i++){
+            mLifecycleCallbacks[i]="";
+        }
 
         logAndAppend(ON_CREATE);
     }
@@ -134,6 +140,9 @@ public class MainActivity extends AppCompatActivity {
         super.onStop();
 
         // TODO (2) Add the ON_STOP String to the front of mLifecycleCallbacks
+        for (String s : mLifecycleCallbacks) {
+            s += ON_STOP;
+        }
 
         logAndAppend(ON_STOP);
     }
@@ -161,6 +170,9 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
 
         // TODO (3) Add the ON_DESTROY String to the front of mLifecycleCallbacks
+        for(String s : mLifecycleCallbacks){
+            s+=ON_DESTROY;
+        }
 
         logAndAppend(ON_DESTROY);
     }
